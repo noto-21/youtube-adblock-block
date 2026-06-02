@@ -1,0 +1,22 @@
+{
+	"manifest_version": 3,
+	"name": "YouTube Adblock-Block",
+	"version": "2.0",
+	"description": "Detects YouTube ads or the adblock warning, and refreshes the page.",
+	"permissions": ["storage"],
+	"host_permissions": ["*://www.youtube.com/*"],
+	"background": {
+		"service_worker": "service_worker.js"
+	},
+	"action": {
+		"default_title": "YouTube Adblock-Block",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://www.youtube.com/*"],
+			"js": ["content.js"],
+			"run_at": "document_idle"
+		}
+	]
+}
